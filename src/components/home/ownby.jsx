@@ -1,9 +1,20 @@
 import React from 'react';
-import { ShieldCheck, Award, Quote, Instagram, Linkedin, Star } from 'lucide-react';
+import { ShieldCheck, Award, Quote, Instagram, MessageCircle, Star } from 'lucide-react';
 // Sahi path se image import karein
 import ownerImg from '../../assets/owner/owner.webp'; 
 
 const OwnBy = () => {
+  // --- REDIRECTION LOGIC ---
+  const handleInstagramClick = () => {
+    window.open("https://www.instagram.com/shree_laxmi_jewellers_and_sons?igsh=MWIyMGZqem9hMnQ4eQ==", "_blank");
+  };
+
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "918873873269"; // Added 91 country code
+    const message = encodeURIComponent("Hello Mahesh ji, I would like to connect regarding Shree Laxmi Jewellers & Sons.");
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
+
   return (
     <section className="py-20 px-4 bg-[#faf9f6] overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
@@ -64,7 +75,7 @@ const OwnBy = () => {
             </p>
           </div>
 
-          {/* Trust Certifications - Using New Green for Icons */}
+          {/* Trust Certifications */}
           <div className="grid grid-cols-2 gap-4 pt-4">
              <div className="flex items-center justify-center lg:justify-start gap-3 p-4 bg-white rounded-2xl border border-gray-100 shadow-sm transition-transform hover:-translate-y-1">
                <ShieldCheck className="text-[#0f2d2a]" size={20}/>
@@ -83,14 +94,22 @@ const OwnBy = () => {
                <p className="text-[#d3a12a] text-xs font-bold uppercase tracking-[0.3em] mt-1">Founder & CEO</p>
             </div>
             
-            {/* Social Links with New Green Hover */}
+            {/* Redirection Links for Instagram & WhatsApp */}
             <div className="flex gap-4">
-                <a href="#" className="p-3 rounded-full bg-[#1a1a1a] text-white hover:bg-[#0f2d2a] hover:shadow-lg transition-all">
+                <button 
+                  onClick={handleInstagramClick}
+                  className="p-3 rounded-full bg-[#1a1a1a] text-white hover:bg-[#0f2d2a] hover:shadow-lg transition-all"
+                  aria-label="Instagram"
+                >
                     <Instagram size={18} />
-                </a>
-                <a href="#" className="p-3 rounded-full bg-[#1a1a1a] text-white hover:bg-[#0f2d2a] hover:shadow-lg transition-all">
-                    <Linkedin size={18} />
-                </a>
+                </button>
+                <button 
+                  onClick={handleWhatsAppClick}
+                  className="p-3 rounded-full bg-[#1a1a1a] text-white hover:bg-[#0f2d2a] hover:shadow-lg transition-all"
+                  aria-label="WhatsApp"
+                >
+                    <MessageCircle size={18} />
+                </button>
             </div>
           </div>
         </div>

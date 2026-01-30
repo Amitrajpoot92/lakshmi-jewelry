@@ -2,12 +2,12 @@ import React from 'react';
 import { MessageCircle, Gem, Sparkles, PenTool } from 'lucide-react';
 
 const CTA = () => {
-  // WhatsApp Logic
+  // --- WHATSAPP REDIRECTION LOGIC (Fixed Country Code) ---
   const handleWhatsAppClick = () => {
-    const phoneNumber = "8873873269";
-    const message = "Hello Sri Lakshmi Jewellers  Team, I am interested in a private consultation for a better jewelry piece. Please guide me through the process.";
+    // Corrected to include '91' country code
+    const phoneNumber = "918873873269"; 
+    const message = "Hello Shree Laxmi Jewellers Team, I am interested in a private consultation for a bespoke jewelry piece. Please guide me through the process.";
     
-    // URL encoding the message to handle spaces and special characters
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     
@@ -47,10 +47,10 @@ const CTA = () => {
             </h2>
 
             <p className="text-white/60 text-lg md:text-xl font-light mb-12 leading-relaxed max-w-2xl mx-auto">
-              Collaborate with our head artisans to transform your personal story into a <span className="text-white font-medium">one-of-a-kind</span> jewelry piece. From sketch to 3D render, we define excellence.
+              Collaborate with our master artisans to transform your personal story into a <span className="text-white font-medium">one-of-a-kind</span> jewelry piece. From sketch to reality, we define excellence.
             </p>
 
-            {/* --- THE SIGNATURE WHATSAPP BUTTON (With Logic) --- */}
+            {/* --- THE SIGNATURE WHATSAPP BUTTON --- */}
             <button 
               onClick={handleWhatsAppClick}
               className="relative group/btn inline-flex flex-col md:flex-row items-center gap-4 bg-[#d3a12a] text-[#0f2d2a] px-8 md:px-12 py-5 rounded-[2rem] md:rounded-full font-bold text-base md:text-lg hover:bg-[#f5d54e] transition-all duration-500 shadow-[0_20px_40px_rgba(211,161,42,0.2)] active:scale-95"
@@ -58,7 +58,7 @@ const CTA = () => {
               <div className="bg-[#0f2d2a] text-white p-2 rounded-full group-hover/btn:rotate-[360deg] transition-transform duration-700">
                 <MessageCircle size={20} fill="white" />
               </div>
-              <span className="tracking-tight">REQUEST PRIVATE CONSULTATION</span>
+              <span className="tracking-widest uppercase text-xs md:text-sm">Request Private Consultation</span>
             </button>
 
             {/* Subtle trust text */}

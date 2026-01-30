@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MapPin, Phone, Instagram, Facebook, Twitter, ShieldCheck, ExternalLink, ChevronRight } from 'lucide-react';
+import { MapPin, Phone, Instagram, ShieldCheck, ExternalLink, ChevronRight, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -8,13 +8,11 @@ const Footer = () => {
 
   // Social Media Redirection Logic
   const socialLinks = {
-    instagram: "", 
-    facebook: "",  
-    twitter: ""    
+    instagram: "https://www.instagram.com/shree_laxmi_jewellers_and_sons?igsh=MWIyMGZqem9hMnQ4eQ==",
+    whatsapp: `https://wa.me/91${wpNumber}`
   };
 
-  const handleSocialClick = (platform) => {
-    const url = socialLinks[platform];
+  const handleSocialClick = (url) => {
     if (url) window.open(url, "_blank");
   };
 
@@ -36,23 +34,26 @@ const Footer = () => {
               Defining purity and heritage since 2002. Every piece tells a story of craftsmanship.
             </p>
             
-            {/* Social Icons - Bigger Touch Targets for Mobile */}
+            {/* Social Icons - WhatsApp & Instagram Only */}
             <div className="flex justify-center md:justify-start gap-5">
-              {['instagram', 'facebook', 'twitter'].map((platform) => (
-                <button 
-                  key={platform}
-                  onClick={() => handleSocialClick(platform)}
-                  className="w-12 h-12 rounded-2xl border border-white/5 bg-white/5 flex items-center justify-center hover:bg-[#d3a12a] hover:text-[#1a1a1a] transition-all duration-300 active:scale-90"
-                >
-                  {platform === 'instagram' && <Instagram size={20} />}
-                  {platform === 'facebook' && <Facebook size={20} />}
-                  {platform === 'twitter' && <Twitter size={20} />}
-                </button>
-              ))}
+              <button 
+                onClick={() => handleSocialClick(socialLinks.whatsapp)}
+                className="w-12 h-12 rounded-2xl border border-white/5 bg-white/5 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all duration-300 active:scale-90"
+                title="WhatsApp"
+              >
+                <MessageCircle size={22} />
+              </button>
+              <button 
+                onClick={() => handleSocialClick(socialLinks.instagram)}
+                className="w-12 h-12 rounded-2xl border border-white/5 bg-white/5 flex items-center justify-center hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:text-white transition-all duration-300 active:scale-90"
+                title="Instagram"
+              >
+                <Instagram size={22} />
+              </button>
             </div>
           </div>
 
-          {/* 2. Navigation - Mobile Accordion Style feel */}
+          {/* 2. Navigation */}
           <div className="grid grid-cols-2 md:grid-cols-2 gap-8 md:col-span-2">
             <div className="text-left">
               <h3 className="text-[#f5d54e] font-bold uppercase tracking-widest text-[10px] mb-6 opacity-50">Navigation</h3>
@@ -73,7 +74,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* 3. Contact Card - ADVANCED PHONE VIEW */}
+          {/* 3. Contact Card */}
           <div className="bg-gradient-to-br from-[#0f2d2a] to-[#071a18] p-8 rounded-[2.5rem] border border-[#d3a12a]/20 shadow-2xl relative overflow-hidden group">
             <div className="absolute -top-6 -right-6 p-4 opacity-5 rotate-12">
                <ShieldCheck size={120} className="text-white" />
@@ -82,7 +83,6 @@ const Footer = () => {
             <h3 className="text-[#f5d54e] font-bold mb-6 text-[10px] uppercase tracking-widest text-left">Visit Our Store</h3>
             
             <div className="space-y-6 relative z-10 text-left">
-              {/* Address */}
               <div className="flex items-start gap-4 text-gray-300 group/loc">
                 <div className="w-8 h-8 rounded-full bg-[#d3a12a]/10 flex items-center justify-center shrink-0">
                   <MapPin className="text-[#d3a12a]" size={16} />
@@ -92,7 +92,6 @@ const Footer = () => {
                 </p>
               </div>
 
-              {/* Click-to-Call Feature */}
               <a 
                 href={`tel:+91${wpNumber}`} 
                 className="flex items-center gap-4 text-gray-300 group/phone active:scale-95 transition-transform"
@@ -126,7 +125,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Highlighted CodeWebX Logo Section */}
           <a 
             href="https://www.codewebx.in/" 
             target="_blank" 

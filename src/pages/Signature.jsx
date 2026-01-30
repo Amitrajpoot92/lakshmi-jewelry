@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ShoppingBag, Star, Share2, Sparkles } from 'lucide-react';
+import { ShoppingBag, Share2, Sparkles } from 'lucide-react';
 import bestsellImg from '../assets/bestsell/bestsell.png';
 
 const Signature = () => {
@@ -10,10 +10,10 @@ const Signature = () => {
   const xLeft = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const xRight = useTransform(scrollYProgress, [0, 1], [0, 150]);
 
-  // WhatsApp Consultation Logic
-  const handleConsultation = (productName) => {
-    const phoneNumber = "8873873269";
-    const message = `Hello Shree Laxmi Jewellers, I am interested in the "${productName}" from your Signature Gallery. Please share more details.`;
+  // --- WHATSAPP REDIRECTION LOGIC (Fixed Country Code) ---
+  const handleConsultation = (product) => {
+    const phoneNumber = "918873873269"; // Added 91 country code
+    const message = `Hello Shree Laxmi Jewellers, I am interested in the "${product.name}" from your Signature Gallery. It has an approximate weight of ${product.weight}. Please share more details.`;
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
   };
@@ -22,15 +22,14 @@ const Signature = () => {
   const handleShare = async (product) => {
     const shareData = {
       title: product.name,
-      text: `Check out this exquisite "${product.name}" at Shree Laxmi Jewellers. Price: ${product.price}.`,
-      url: window.location.href, // Aap yahan specific product URL bhi de sakte hain
+      text: `Check out this exquisite "${product.name}" at Shree Laxmi Jewellers. Approx Weight: ${product.weight}.`,
+      url: window.location.href,
     };
 
     try {
       if (navigator.share) {
         await navigator.share(shareData);
       } else {
-        // Fallback agar browser share support nahi karta (Desktop cases)
         navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
         alert("Link copied to clipboard!");
       }
@@ -39,9 +38,10 @@ const Signature = () => {
     }
   };
 
+  // Masterpieces data with Weight instead of Price
   const masterpieces = Array(6).fill({
     name: "Royal Polki Choker",
-    price: "₹12,50,000",
+    weight: "145.20g",
     desc: "Handcrafted 22K Gold with uncut diamonds and emerald drops. A legacy piece from our artisan heritage.",
     img: bestsellImg,
     tag: "Exquisite Heritage"
@@ -59,7 +59,7 @@ const Signature = () => {
       exit={{ opacity: 0 }}
       className="bg-[#faf9f6] min-h-screen pb-20 overflow-x-hidden"
     >
-      {/* --- HERO SECTION (Starting directly from here) --- */}
+      {/* --- HERO SECTION --- */}
       <section className="relative min-h-[60vh] flex flex-col items-center justify-center px-6 pt-10 overflow-hidden text-center">
         <motion.div style={{ x: xLeft }} className="absolute top-1/3 left-0 whitespace-nowrap opacity-[0.03] select-none pointer-events-none font-serif italic text-[25vw] leading-none uppercase">
           Signature Signature Signature
@@ -76,7 +76,7 @@ const Signature = () => {
             The <span className="italic font-light">Bespoke</span> <br/>
             <span className="text-[#0f2d2a] font-bold uppercase">Gallery</span>
           </h1>
-          <p className="text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.5em] font-bold">Shree Laxmi Jewellers • Since 2002</p>
+          <p className="text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.5em] font-bold">Shree Laxmi Jewellers • Since 1996</p>
         </motion.div>
       </section>
 
@@ -100,7 +100,7 @@ const Signature = () => {
                   alt={item.name} 
                 />
                 
-                {/* --- NATIVE SHARE BUTTON --- */}
+                {/* SHARE BUTTON */}
                 <motion.button 
                   whileTap={{ scale: 0.8 }} 
                   onClick={() => handleShare(item)}
@@ -109,11 +109,11 @@ const Signature = () => {
                   <Share2 size={20} />
                 </motion.button>
 
-                {/* Mobile Info Overlay */}
+                {/* Mobile Info Overlay (Price replaced with Weight) */}
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#0f2d2a] to-transparent pointer-events-none lg:hidden"></div>
                 <div className="absolute bottom-6 left-6 text-white lg:hidden">
                     <p className="text-2xl font-serif">{item.name}</p>
-                    <p className="text-[#f5d54e] font-black text-xl tracking-tighter">{item.price}</p>
+                    <p className="text-[#f5d54e] font-black text-xl tracking-tighter italic">Approx: {item.weight}</p>
                 </div>
               </div>
             </motion.div>
@@ -130,14 +130,14 @@ const Signature = () => {
               </p>
 
               <div className="hidden lg:flex flex-col gap-1">
-                <span className="text-gray-400 text-[10px] uppercase tracking-widest font-bold">Appraisal Value</span>
-                <span className="text-4xl font-black text-[#0f2d2a] tracking-tighter">{item.price}</span>
+                <span className="text-gray-400 text-[10px] uppercase tracking-widest font-bold text-xs">Approximate Weight</span>
+                <span className="text-4xl font-black text-[#0f2d2a] tracking-tighter italic">{item.weight}</span>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <motion.button 
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => handleConsultation(item.name)}
+                  onClick={() => handleConsultation(item)}
                   className="flex-grow bg-[#0f2d2a] text-white py-5 rounded-full font-bold tracking-widest text-[10px] uppercase flex items-center justify-center gap-3 shadow-xl"
                 >
                   <ShoppingBag size={16} /> Request Consultation
