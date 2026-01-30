@@ -76,7 +76,7 @@ const Signature = () => {
             The <span className="italic font-light">Bespoke</span> <br/>
             <span className="text-[#0f2d2a] font-bold uppercase">Gallery</span>
           </h1>
-          <p className="text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.5em] font-bold">Shree Laxmi Jewellers • Since 1996</p>
+          <p className="text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.5em] font-bold">Shree Laxmi Jewellers • Since 2002</p>
         </motion.div>
       </section>
 

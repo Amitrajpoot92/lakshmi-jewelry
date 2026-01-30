@@ -19,12 +19,12 @@ const OwnBy = () => {
               <img 
                 src={ownerImg} 
                 className="w-full h-[400px] md:h-[600px] object-cover object-top transition-all duration-1000" 
-                alt="Mahesh Kumar Soni - Owner" 
+                alt="Mahesh Kumar - Owner" 
               />
               
               {/* Mobile Info Overlay - Using New #0f2d2a */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f2d2a]/95 via-[#0f2d2a]/20 to-transparent flex flex-col justify-end p-6 md:hidden">
-                 <h3 className="text-[#f5d54e] text-2xl font-serif">Mahesh Kumar Soni</h3>
+                 <h3 className="text-[#f5d54e] text-2xl font-serif">Mahesh Kumar</h3>
                  <p className="text-white/80 text-sm tracking-widest uppercase font-medium">Founder & Visionary</p>
               </div>
             </div>
@@ -32,7 +32,7 @@ const OwnBy = () => {
             {/* Experience Floating Badge */}
             <div className="absolute -bottom-8 -right-4 bg-white p-6 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] z-20 hidden sm:block border-b-4 border-[#d3a12a]">
                <div className="flex items-center gap-4">
-                  <div className="bg-[#0f2d2a] text-[#f5d54e] w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg shadow-[#0f2d2a]/30">30</div>
+                  <div className="bg-[#0f2d2a] text-[#f5d54e] w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg shadow-[#0f2d2a]/30">24</div>
                   <div>
                     <p className="text-[#1a1a1a] font-bold leading-tight">Years of <br/> Legacy</p>
                     <div className="flex gap-0.5 mt-1">
@@ -60,7 +60,7 @@ const OwnBy = () => {
           <div className="relative">
             <Quote className="absolute -top-4 -left-2 text-[#d3a12a]/20 w-12 h-12 rotate-180" />
             <p className="text-gray-600 text-lg md:text-xl leading-relaxed italic pl-6 relative z-10">
-              "Humara vishwas hai ki har gehna ek kahani sunata hai. 1996 se Mahesh Kumar Soni ke netritva mein humne shuddhata aur vishwas ki parampara ko banaye rakha hai."
+              "Humara vishwas hai ki har gehna ek kahani sunata hai. 2002 se Mahesh Kumar ke netritva mein humne shuddhata aur vishwas ki parampara ko banaye rakha hai."
             </p>
           </div>
 
@@ -79,7 +79,7 @@ const OwnBy = () => {
           {/* Footer of Section */}
           <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-gray-100">
             <div className="text-center md:text-left">
-               <p className="text-[#1a1a1a] font-serif text-3xl">Mahesh Kumar Soni</p>
+               <p className="text-[#1a1a1a] font-serif text-3xl">Mahesh Kumar</p>
                <p className="text-[#d3a12a] text-xs font-bold uppercase tracking-[0.3em] mt-1">Founder & CEO</p>
             </div>
             

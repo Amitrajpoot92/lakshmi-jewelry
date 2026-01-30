@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 import { 
   SlidersHorizontal, 
   Share2, 
-  MessageCircle, // WhatsApp ke liye icon
+  MessageCircle, 
   Search, 
   Star 
 } from 'lucide-react';
@@ -14,19 +14,21 @@ const Collections = () => {
 
   const categories = ['All', 'Bridal', 'Diamonds', 'Antique Gold', 'Daily Wear', 'Polki'];
 
+  // Data updated: Price replaced with Weight
   const allProducts = [
-    { id: 1, name: "Royal Heritage Choker", price: "₹8,50,000", category: "Bridal", img: collectionImg, tag: "Trending" },
-    { id: 2, name: "Diamond Solitaire Ring", price: "₹2,10,000", category: "Diamonds", img: collectionImg, tag: "New" },
-    { id: 3, name: "Temple Gold Jhumkas", price: "₹1,45,000", category: "Antique Gold", img: collectionImg, tag: "Classic" },
-    { id: 4, name: "Daily Diamond Studs", price: "₹45,000", category: "Daily Wear", img: collectionImg, tag: "Best Seller" },
-    { id: 5, name: "Polki Necklace Set", price: "₹5,20,000", category: "Polki", img: collectionImg, tag: "Exclusive" },
-    { id: 6, name: "Bridal Bangles Set", price: "₹3,75,000", category: "Bridal", img: collectionImg, tag: "Trending" },
+    { id: 1, name: "Royal Heritage Choker", weight: "125.50g", category: "Bridal", img: collectionImg, tag: "Trending" },
+    { id: 2, name: "Diamond Solitaire Ring", weight: "4.20g", category: "Diamonds", img: collectionImg, tag: "New" },
+    { id: 3, name: "Temple Gold Jhumkas", weight: "22.80g", category: "Antique Gold", img: collectionImg, tag: "Classic" },
+    { id: 4, name: "Daily Diamond Studs", weight: "3.50g", category: "Daily Wear", img: collectionImg, tag: "Best Seller" },
+    { id: 5, name: "Polki Necklace Set", weight: "85.00g", category: "Polki", img: collectionImg, tag: "Exclusive" },
+    { id: 6, name: "Bridal Bangles Set", weight: "62.30g", category: "Bridal", img: collectionImg, tag: "Trending" },
   ];
 
-  // --- WHATSAPP REDIRECTION LOGIC ---
+  // --- WHATSAPP REDIRECTION LOGIC (Fixed Country Code) ---
   const handleWhatsAppInquiry = (product) => {
-    const phoneNumber = "8873873269";
-    const message = `Hello Shree Laxmi Jewellers, I am interested in the "${product.name}" (Category: ${product.category}) priced at ${product.price}. Could you please share more details?`;
+    // Country code '91' added at the start of the number string
+    const phoneNumber = "918873873269"; 
+    const message = `Hello Shree Laxmi Jewellers, I am interested in the "${product.name}" (Category: ${product.category}) with a weight of ${product.weight}. Could you please share more details?`;
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
   };
@@ -35,7 +37,7 @@ const Collections = () => {
   const handleShare = async (product) => {
     const shareData = {
       title: `Shree Laxmi Jewellers - ${product.name}`,
-      text: `Check out this beautiful ${product.name} at Shree Laxmi Jewellers. Price: ${product.price}`,
+      text: `Check out this beautiful ${product.name} at Shree Laxmi Jewellers. Weight: ${product.weight}`,
       url: window.location.href, 
     };
 
@@ -156,9 +158,10 @@ const Collections = () => {
                     </div>
                   </div>
                   <h3 className="text-xl font-serif text-[#1a1a1a] group-hover:text-[#0f2d2a] transition-colors">{item.name}</h3>
-                  <p className="text-2xl font-black text-[#0f2d2a] tracking-tighter">{item.price}</p>
+                  {/* Weight displayed instead of Price */}
+                  <p className="text-2xl font-black text-[#0f2d2a] tracking-tighter italic">Approx: {item.weight}</p>
                   
-                  {/* WHATSAPP BUTTON (Mobile - Always Visible) */}
+                  {/* WHATSAPP BUTTON (Mobile) */}
                   <button 
                     onClick={() => handleWhatsAppInquiry(item)}
                     className="w-full md:hidden bg-[#0f2d2a] text-white py-4 rounded-2xl mt-4 font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-2 active:scale-95 transition-transform"

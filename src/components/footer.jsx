@@ -33,7 +33,7 @@ const Footer = () => {
               Shree Laxmi <span className="text-white block md:inline">Jewellers & Sons</span>
             </h2>
             <p className="text-gray-500 text-[11px] leading-relaxed mb-8 max-w-xs mx-auto md:mx-0">
-              Defining purity and heritage since 1996. Every piece tells a story of craftsmanship.
+              Defining purity and heritage since 2002. Every piece tells a story of craftsmanship.
             </p>
             
             {/* Social Icons - Bigger Touch Targets for Mobile */}

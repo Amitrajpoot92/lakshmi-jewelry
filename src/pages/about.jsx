@@ -21,7 +21,7 @@ const About = () => {
         </div>
         
         <div className="relative z-10 max-w-4xl mx-auto">
-          <span className="text-[#f5d54e] text-[10px] font-bold tracking-[0.5em] uppercase mb-6 block">Established 1996</span>
+          <span className="text-[#f5d54e] text-[10px] font-bold tracking-[0.5em] uppercase mb-6 block">Established 2002</span>
           <h1 className="text-5xl md:text-8xl font-serif text-white mb-8">
             The Soul of <br/> <span className="italic text-[#f5d54e]">Shree Laxmi Jewellers</span>
           </h1>
@@ -50,7 +50,7 @@ const About = () => {
           <div className="w-full lg:w-1/2 relative">
              <div className="absolute -inset-4 border border-[#d3a12a]/20 rounded-[3rem] rotate-3 -z-10"></div>
              <div className="rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
-                <img src={ownerImg} alt="Mahesh Kumar Soni - Owner" className="w-full h-auto object-cover" />
+                <img src={ownerImg} alt="Mahesh Kumar - Owner" className="w-full h-auto object-cover" />
              </div>
              <div className="absolute -bottom-6 -right-6 bg-[#d3a12a] p-6 rounded-3xl shadow-xl hidden md:block">
                 <Award size={40} className="text-[#0f2d2a]" />
@@ -59,11 +59,11 @@ const About = () => {
 
           <div className="w-full lg:w-1/2 space-y-8">
             <h2 className="text-4xl md:text-6xl font-serif text-[#1a1a1a] leading-tight">
-              A Legacy Crafted by <br/> <span className="italic text-[#0f2d2a]">Mahesh Kumar Soni</span>
+              A Legacy Crafted by <br/> <span className="italic text-[#0f2d2a]">Mahesh Kumar </span>
             </h2>
             <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
               <p>
-                1996 mein ek choti si workshop se shuru hua ye safar, aaj vishwas ka doosra naam ban gaya hai. Mahesh Kumar Soni ji ka manna hai ki jewelry sirf ek metal nahi, balki emotions ka ek hissa hai.
+                2002 mein ek choti si workshop se shuru hua ye safar, aaj vishwas ka doosra naam ban gaya hai. Mahesh Kumar ji ka manna hai ki jewelry sirf ek metal nahi, balki emotions ka ek hissa hai.
               </p>
               <p>
                 Unke netritva mein Shree Laxmi Jewellers ne hamesha **BIS Hallmarked** gold aur certified stones ki purity ko priority di hai, taaki aapka har investment surakshit rahe.
@@ -71,7 +71,7 @@ const About = () => {
             </div>
             <div className="pt-8 flex items-center gap-6">
                <div className="h-[1px] w-20 bg-[#d3a12a]"></div>
-               <span className="font-serif text-2xl italic text-[#0f2d2a]">Mahesh Kumar Soni - Owner</span>
+               <span className="font-serif text-2xl italic text-[#0f2d2a]">Mahesh Kumar - Owner</span>
             </div>
           </div>
         </div>
